@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "Le Parisien Ad Blocker",
+  "description": "Supprime la pop-up empêchant de lire les articles sur le Parisien.fr / Remove ads from leparisien.fr",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Le Parisien Extension"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
