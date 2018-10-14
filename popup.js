@@ -15,12 +15,12 @@ var  getCurrentTabUrl = (callback) => {
 
     var url = tab.url;
 
-    //console.assert(typeof url == 'string', 'tab.url should be a string');
+    console.assert(typeof url == 'string', 'tab.url should be a string');
 
     callback(url);
   });
 
-}
+};
 
 /**
  * Extract domain url
@@ -37,8 +37,10 @@ var extractRootDomain = (url) => {
     splitArr = domain.split('//');
     domain = splitArr[1];
   }
+  console.log(domain);
+
   return domain;
-}
+};
 
 
 /**
@@ -52,12 +54,13 @@ const removeParisienPopup = (url) => {
 
   if(site == 'www.leparisien'){
     script = 'var pop = document.querySelector(\'.overlay\'); var popsmall = document.querySelector(\'.overlay_small\'); popsmall.remove();';
+    //script = '';
   }
 
   chrome.tabs.executeScript({
     code: script
   });
-}
+};
 
 
 /**
@@ -65,8 +68,12 @@ const removeParisienPopup = (url) => {
  *
  */
 document.addEventListener('DOMContentLoaded', () => {
+
+  alert('dom content loaded');
+
   getCurrentTabUrl((url) => {
 
+    alert('dom content loaded');
     removeParisienPopup(url);
 
   });
